@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eshop - Categories</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- ===== HEADER (SAME) ===== -->
+    <header class="site-header">
+        <div class="brand">
+            <img src="assets/AIrobot.png" alt="Eshop Logo" width="30">
+            <span class="company-name">Eshop</span>
+        </div>
+        <nav id="mainNav">
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="categories.html">Categories</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="actions">
+            <a href="cart.html" class="cart-link">
+                <img src="assets/cartwhite.svg" alt="Cart" width="28">
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
+            <button class="hamburger" onclick="toggleMenu()">
+                <img src="assets/hamburgerwhite.svg" alt="Menu" width="28">
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main>
+        <section class="hero">
+            <h1>Shop by Category</h1>
+            <p>Pumili ng kategorya na babagay sa iyong pangangailangan.</p>
+        </section>
+
+        <!-- Category Cards (May onclick events) -->
+        <section class="categories-grid">
+            <div class="category-card" onclick="filterProducts('Men')" style="cursor: pointer;">
+                <h3>👕 Men</h3>
+                <p>Shirts, Pants, Shoes</p>
+            </div>
+            <div class="category-card" onclick="filterProducts('Women')" style="cursor: pointer;">
+                <h3>👗 Women</h3>
+                <p>Dresses, Bags, Heels</p>
+            </div>
+            <div class="category-card" onclick="filterProducts('Kids')" style="cursor: pointer;">
+                <h3>👶 Kids</h3>
+                <p>Toys, Clothes, Shoes</p>
+            </div>
+            <div class="category-card" onclick="filterProducts('Accessories')" style="cursor: pointer;">
+                <h3>📱 Accessories</h3>
+                <p>Watches, Bags, Tech</p>
+            </div>
+          <div class="category-card show-all" onclick="filterProducts('all')">
+    <h3>📦 Show All</h3>
+    <p>Tingnan ang lahat ng produkto</p>
+</div>
+        </section>
+
+        <!-- Dito lalabas ang mga produkto batay sa napiling kategorya -->
+        <section id="category-products" class="products-grid">
+            <!-- Automatic na popunuin ng JavaScript ang mga product cards dito -->
+        </section>
+    </main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <!-- Column 1: Brand -->
+        <div class="footer-col">
+            <h3>Eshop</h3>
+            <p>Ang iyong mapagkakatiwalaang online shop mula 2026.</p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+
+<!-- Column 3: Contact (Messenger + Email) -->
+<div class="footer-col">
+    <h4>Get in Touch</h4>
+    
+    <!-- Messenger Link (Best for mobile & desktop) -->
+    <p>💬 <a href="https://m.me/eliasby2026" target="_blank">Message us on Messenger</a></p>
+    
+    <!-- Email Link (Puwede pa rin) -->
+    <p>📧 <a href="mailto:eliasby3000@gmail.com">eshop@example.com</a></p>
+    
+    <!-- Phone Number (Para sa mga gusto tumawag) -->
+    <p>📞 <a href="tel:+6312345678">(02) 1234-5678</a></p>
+</div>
+
+        <!-- Column 4: Social Media (Optional) -->
+        <div class="footer-col">
+            <h4>Follow Us</h4>
+            <div class="social-links">
+    <a href="https://facebook.com/yourpage" target="_blank">📘</a>
+    <a href="https://instagram.com/yourpage" target="_blank">📸</a>
+    <a href="https://twitter.com/yourpage" target="_blank">🐦</a>
+</div>
+        </div>
+    </div>
+
+    <!-- Bottom Bar: Copyright -->
+    <div class="footer-bottom">
+        <p>&copy; 2026 Eshop. All rights reserved.</p>
+    </div>
+</footer>
+    <script src="main.js"></script>
+    <script src="cart.js"></script>
+</body>
+</html>

@@ -1,0 +1,840 @@
+/* ======================================== */
+/* 1. RESET AT BASE SETTINGS                */
+/* ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+
+/* ======================================== */
+/* 2. HEADER (site-header)                  */
+/* ======================================== */
+.site-header {
+    background-color: #2c3e50;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Brand (Logo + Company Name) --- */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.company-name {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* --- Navigation (nakatago sa mobile) --- */
+#mainNav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    z-index: 999;
+}
+
+#mainNav.show {
+    display: flex;
+}
+
+#mainNav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#mainNav a:last-child {
+    border-bottom: none;
+}
+
+/* --- Actions (Cart + Hamburger) --- */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Cart Link (may Badge) */
+.cart-link {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* ITO ANG BADGE (yung may nakasero na pula) */
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #e74c3c;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+    line-height: 18px;
+    border: 2px solid #2c3e50;
+}
+
+/* Hamburger Button */
+.hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+}
+
+
+/* ======================================== */
+/* 3. MAIN CONTENT (HERO SECTION)           */
+/* ======================================== */
+.hero {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: white;
+    margin: 20px;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    font-size: 2rem;
+    color: #2c3e50;
+}
+
+.hero p {
+    color: #555;
+    margin-top: 8px;
+}
+
+
+/* ======================================== */
+/* 4. PRODUCTS PAGE                         */
+/* ======================================== */
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    background: #eee;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.product-card h3 {
+    font-size: 1.1rem;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.add-to-cart:hover {
+    background-color: #1a252f;
+}
+
+/* Remove from Cart Button (sa Products at Categories pages) */
+.remove-from-cart {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.2s;
+}
+
+.remove-from-cart:hover {
+    background-color: #c0392b;
+}
+
+/* Para pantay ang Add at Remove buttons */
+.product-card .add-to-cart,
+.product-card .remove-from-cart {
+    flex: 1;
+    min-width: 80px;
+}
+
+
+/* ======================================== */
+/* 5. CATEGORIES PAGE                       */
+/* ======================================== */
+.categories-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.category-card {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    text-align: center;
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-card h3 {
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.category-card p {
+    color: #777;
+    margin-top: 5px;
+}
+
+/* SPECIAL: Para lang sa "Show All" */
+.category-card.show-all {
+    background: #2c3e50;  /* Madilim na asul */
+    color: white;          /* Puting text */
+}
+
+.category-card.show-all h3 {
+    color: white;          /* Puting text para sa heading */
+}
+
+.category-card.show-all p {
+    color: #ccc;           /* Light gray para sa subtext */
+}
+/* ======================================== */
+/* 6. ABOUT PAGE                            */
+/* ======================================== */
+.about-content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+}
+
+.about-content h2 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.about-content p {
+    color: #555;
+    line-height: 1.6;
+}
+
+
+/* ======================================== */
+/* 7. CONTACT PAGE (Form)                   */
+/* ======================================== */
+.contact-form {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: #2c3e50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #1a252f;
+}
+
+
+/* ======================================== */
+/* 8. CART PAGE                             */
+/* ======================================== */
+.cart-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table thead {
+    background-color: #2c3e50;
+    color: white;
+}
+
+.cart-table th {
+    padding: 12px;
+    text-align: left;
+}
+
+.cart-table th:nth-child(2),
+.cart-table th:nth-child(3),
+.cart-table th:nth-child(4),
+.cart-table th:nth-child(5) {
+    text-align: center;
+}
+
+/* Empty cart message */
+.empty-cart-message {
+    text-align: center;
+    padding: 20px;
+    color: #888;
+    font-style: italic;
+}
+
+/* Cart table rows */
+.cart-row {
+    border-bottom: 1px solid #eee;
+}
+
+.cart-row:last-child {
+    border-bottom: none;
+}
+
+.cart-row:hover {
+    background-color: #f9f9f9;
+}
+
+/* Cart table cells */
+.cart-cell {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Quantity buttons (+, -) */
+.qty-btn {
+    background-color: #ecf0f1;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 4px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s;
+}
+
+.qty-btn:hover {
+    background-color: #bdc3c7;
+}zqzqqq{}
+
+/* Remove button (sa cart page) */
+.remove-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Cart Summary (Total + Buy Button) */
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-summary h3 {
+    color: #2c3e50;
+}
+
+/* Buy Now button */
+.buy-btn {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.buy-btn:hover {
+    background-color: #1e8449;
+}
+
+/* ======================================== */
+/* 10. MEDIA QUERIES (Responsive)           */
+/* ======================================== */
+
+/* --- TABLET (768px pataas) --- */
+@media (min-width: 768px) {
+    .site-header {
+        padding: 15px 30px;
+    }
+
+    .company-name {
+        font-size: 1.4rem;
+    }
+
+    #mainNav {
+        display: flex !important;
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: transparent;
+        padding: 0;
+        gap: 25px;
+    }
+
+    #mainNav a {
+        padding: 0;
+        border-bottom: none;
+        font-size: 0.95rem;
+        transition: color 0.3s;
+    }
+
+    #mainNav a:hover {
+        color: #f1c40f;
+    }
+
+    .hamburger {
+        display: none;
+    }
+
+    .cart-badge {
+        border-color: #2c3e50;
+    }
+
+    .hero {
+        padding: 60px 30px;
+        margin: 30px 40px;
+    }
+
+    .product-card {
+        width: 220px;
+    }
+}
+
+/* --- LAPTOP / DESKTOP (1024px pataas) --- */
+@media (min-width: 1024px) {
+    .site-header {
+        padding: 18px 50px;
+    }
+
+    .company-name {
+        font-size: 1.6rem;
+    }
+
+    #mainNav {
+        gap: 40px;
+    }
+
+    #mainNav a {
+        font-size: 1rem;
+    }
+
+    .actions {
+        gap: 25px;
+    }
+
+    .hero {
+        padding: 80px 40px;
+        margin: 40px 50px;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .product-card {
+        width: 240px;
+        padding: 20px;
+    }
+
+    .category-card {
+        width: 220px;
+        padding: 40px;
+    }
+}
+
+/* --- MALAKING DESKTOP (1440px pataas) --- */
+@media (min-width: 1440px) {
+    .site-header {
+        padding: 20px 80px;
+    }
+
+    .company-name {
+        font-size: 1.8rem;
+    }
+
+    #mainNav {
+        gap: 60px;
+    }
+
+    .hero {
+        padding: 100px 60px;
+        margin: 40px 80px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .product-card {
+        width: 260px;
+    }
+}
+
+/* --- MOBILE (600px pababa) --- */
+@media (max-width: 600px) {
+    .product-card {
+        width: 160px;
+        padding: 10px;
+    }
+
+    .product-image {
+        height: 100px;
+        font-size: 2rem;
+    }
+
+    .product-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .product-price {
+        font-size: 0.95rem;
+    }
+
+    .add-to-cart {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+
+    .remove-from-cart {
+        font-size: 0.7rem;
+        padding: 6px 10px;
+    }
+
+    .category-card {
+        width: 160px;
+        padding: 20px;
+    }
+
+    .category-card h3 {
+        font-size: 1rem;
+    }
+
+    .cart-cell {
+        font-size: 0.8rem;
+        padding: 8px 4px;
+    }
+
+    .qty-btn {
+        padding: 2px 6px;
+        font-size: 0.8rem;
+    }
+
+    .remove-btn {
+        padding: 4px 8px;
+        font-size: 0.8rem;
+    }
+
+    .cart-summary {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .cart-table th,
+    .cart-table td {
+        font-size: 0.75rem;
+        padding: 6px 3px;
+    }
+
+    .contact-form {
+        padding: 15px;
+        margin: 0 10px;
+    }
+
+    .about-content {
+        padding: 15px;
+        margin: 0 10px;
+    }
+}
+
+/* ======================================== */
+/* 11. FOOTER STYLES                        */
+/* ======================================== */
+
+/* Main Footer Container */
+.site-footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 20px 20px;
+    margin-top: 40px;
+}
+
+/* Inner Container (para sa columns) */
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+/* Each Column */
+.footer-col {
+    flex: 1;
+    min-width: 160px;
+}
+
+.footer-col h3 {
+    font-size: 1.4rem;
+    color: gold;
+    margin-bottom: 10px;
+}
+
+.footer-col h4 {
+    font-size: 1.1rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-col p {
+    margin: 6px 0;
+    color: #bdc3c7;
+    line-height: 1.6;
+}
+
+/* ======================================== */
+/* CONTACT LINKS (Email, Phone, Messenger)  */
+/* ======================================== */
+
+.footer-col a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-col a:hover {
+    color: #f1c40f;
+}
+
+.footer-col a[href^="mailto:"]:hover {
+    color: #f1c40f;
+}
+
+.footer-col a[href^="tel:"]:hover {
+    color: #f1c40f;
+}
+
+.footer-col a[href*="m.me"] {
+    font-weight: bold;
+}
+
+.footer-col a[href*="m.me"]:hover {
+    color: #f1c40f;
+}
+
+/* ======================================== */
+/* SOCIAL MEDIA LINKS                       */
+/* ======================================== */
+
+.social-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    background-color: #34495e;
+    color: white;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.social-links a:hover {
+    background-color: #f1c40f;
+    color: #2c3e50;
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.social-links a:active {
+    transform: scale(0.95);
+}
+
+/* ======================================== */
+/* QUICK LINKS (Lista)                      */
+/* ======================================== */
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #f1c40f;
+}
+
+/* ======================================== */
+/* BOTTOM BAR (Copyright)                   */
+/* ======================================== */
+
+.footer-bottom {
+    border-top: 1px solid #34495e;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+/* ======================================== */
+/* RESPONSIVE: Mobile (600px pababa)        */
+/* ======================================== */
+
+@media (max-width: 600px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .footer-col {
+        min-width: 100%;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
